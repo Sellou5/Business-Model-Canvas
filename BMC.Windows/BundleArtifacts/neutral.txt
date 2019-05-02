@@ -1,0 +1,4 @@
+MainPackage=D:\Assembly 5-1\Business Model Canvas\BMC\BMC\BMC.Windows\bin\Release\BMC.Windows_1.1.0.1_Bundle\BMC.Windows_1.1.0.1_AnyCPU.appx
+SymbolPackage=D:\Assembly 5-1\Business Model Canvas\BMC\BMC\BMC.Windows\AppPackages\BMC.Windows_1.1.0.1_Test\BMC.Windows_1.1.0.1_AnyCPU.appxsym
+ResourcePack=D:\Assembly 5-1\Business Model Canvas\BMC\BMC\BMC.Windows\bin\Release\BMC.Windows_1.1.0.1_Bundle\BMC.Windows_1.1.0.1_scale-140.appx
+ResourcePack=D:\Assembly 5-1\Business Model Canvas\BMC\BMC\BMC.Windows\bin\Release\BMC.Windows_1.1.0.1_Bundle\BMC.Windows_1.1.0.1_scale-180.appx
