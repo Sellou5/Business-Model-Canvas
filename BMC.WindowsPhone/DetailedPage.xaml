@@ -1,0 +1,38 @@
+﻿<Page
+    x:Class="BMC.DetailedPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BMC"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush Stretch="Fill" ImageSource="Assets/background.jpg"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <TextBlock Text="Business Model Canvas" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="35" FontWeight="Black" />
+        <Grid Grid.Row="1">
+            
+            <ListView 
+                x:Name="MyList"
+                SelectionMode="None"
+                IsItemClickEnabled="True"
+                ItemClick="MyList_ItemClick"
+                >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Name}" Margin="15" FontWeight="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Foreground="Black" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </Grid>
+
+    </Grid>
+</Page>
