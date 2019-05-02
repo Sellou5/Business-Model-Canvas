@@ -1,0 +1,7 @@
+﻿[ResourceMetadata]
+"ResourceId"			"filemap.scale-140"
+"ResourceDimensions"		"scale-140"
+
+[Files]
+"D:\Assembly 5-1\Business Model Canvas\BMC\BMC\BMC.Windows\obj\Release\filemap.scale-140.pri"			"resources.pri"
+"D:\Assembly 5-1\Business Model Canvas\BMC\BMC\BMC.Windows\obj\Release\PackageLayout\Assets\SplashScreen.scale-140.png"			"Assets\SplashScreen.scale-140.png"
