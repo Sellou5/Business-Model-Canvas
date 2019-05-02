@@ -1,0 +1,126 @@
+﻿<Page
+    x:Name="pageRoot"
+    x:Class="BMC.DetailedPage"
+    DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BMC"
+    xmlns:common="using:BMC.Common"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    
+    >
+
+    <Page.Resources>
+        <!-- TODO: Delete this line if the key AppName is declared in App.xaml -->
+        <x:String x:Key="AppName">My Application</x:String>
+    </Page.Resources>
+
+    <!--
+        This grid acts as a root panel for the page that defines two rows:
+        * Row 0 contains the back button and page title
+        * Row 1 contains the rest of the page layout
+    -->
+    <Grid>
+        <Grid.Background>
+            <ImageBrush Stretch="Fill" ImageSource="Assets/background.jpg"/>
+        </Grid.Background>
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="140"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Back button and page title -->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="backButton" Margin="39,59,39,0" Command="{Binding NavigationHelper.GoBackCommand, ElementName=pageRoot}"
+                        Style="{StaticResource NavigationBackButtonNormalStyle}"
+                        VerticalAlignment="Top"
+                    Foreground="Black"
+                    BorderBrush="Black"
+                    RequestedTheme="Light"
+                    BorderThickness="20"
+                        AutomationProperties.Name="Back"
+                        AutomationProperties.AutomationId="BackButton"
+                        AutomationProperties.ItemType="Navigation Button"/>
+            <TextBlock x:Name="pageTitle" Text="{Binding Name}" Style="{StaticResource HeaderTextBlockStyle}" Foreground="Black"
+                       Grid.Column="1" FontWeight="SemiBold" FontSize="40"
+                        IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40"/>
+        </Grid>
+        <ScrollViewer Height="620" Grid.Row="1" VerticalScrollBarVisibility="Visible" VerticalScrollMode="Enabled">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="500"/>
+                </Grid.ColumnDefinitions>
+                <Image x:Name="Myimage" Grid.Column="1" Source="{Binding MyImage}" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="150" Width="150" Height="200" />
+                <TextBlock TextWrapping="Wrap" x:Name="Mytext" Foreground="Black" FontWeight="SemiBold" FontSize="30" Grid.Column="0" Margin="140,100,5,5" Text="{Binding MyText}" />
+                <AppBarButton x:Name="MyButo0n" Margin="10,0,0,0" RequestedTheme="Light" Foreground="Black" Icon="Play" Label="Play" Click="AppBarButton_Click" />
+                <MediaElement x:Name="MyMedia" Grid.Column="0" HorizontalAlignment="Left" Height="100" Margin="193,223,0,0" VerticalAlignment="Top" Width="100"/>
+                <MediaElement Grid.Column="1"
+                              Width="480"
+                              Height="500"
+                              
+                    Name="YouTubePlayerMediaElement"
+                          VerticalAlignment="Top"
+                          MediaOpened="OnMediaOpened"
+                          MediaFailed="OnMediaFailed"
+                          HorizontalAlignment="Center" 
+                          Margin="20" 
+                          DoubleTapped="YouTubePlayer_DoubleTapped"
+                          IsFullWindow="False"     
+                          >
+                </MediaElement>
+                <ProgressBar x:Name="ProgressProgressBar"
+            Grid.Column="1" VerticalAlignment="Top"
+            HorizontalAlignment="Center"
+            Foreground="Black"
+            IsIndeterminate="True"
+            Height="13"  Width="387"/>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+    <Page.BottomAppBar>
+        <CommandBar   x:Name="MyBar"
+                      IsSticky="True" 
+                      Margin="20"
+                      IsOpen="True"
+                    Width="460"
+HorizontalAlignment="Right"
+                      >
+            <AppBarButton 
+                VerticalAlignment="Center"
+                x:Name="Previousbtn"
+                Label="Previous"
+                HorizontalAlignment="Left"
+                Click="Previousbtn_Click"
+                Icon="Previous" />
+            <AppBarButton 
+                HorizontalAlignment="Left"
+                Icon="Pause"
+                VerticalAlignment="Center"
+                Label="Pause"
+                Click="Pausebtn_Click"
+                x:Name="Pausebtn" />
+            <AppBarButton VerticalAlignment="Center"
+                x:Name="Seekbtn"
+                Click="Seekbtn_Click"
+                HorizontalAlignment="Left"
+                Label="Next" Icon="Next" />
+            <AppBarButton VerticalAlignment="Center"
+                x:Name="Expand"
+                Click="YouTubePlayer_DoubleTapped"
+                HorizontalAlignment="Left"
+                Label="Full Window" Icon="FullScreen" />
+        </CommandBar>
+    </Page.BottomAppBar>
+</Page>
